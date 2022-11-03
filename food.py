@@ -14,7 +14,6 @@ class Food(Turtle):
         self.shape("turtle")
         self.setheading(random.choice(self.HEADING))
         self.penup()
-        # self.shapesize(stretch_len=0.5, stretch_wid=0.5)
         self.color(random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
         self.speed("fastest")
         self.refresh()
