@@ -27,6 +27,14 @@ class Snake:
         new_segment.goto(position)
         self.segments.append(new_segment)
 
+    def reset_snake(self):
+        """Reset snake with its basic values"""
+        for segment in self.segments:
+            segment.goto(2000,2000)
+        self.segments.clear()
+        self.create_snake()
+        self.head = self.segments[0]
+
     def extend(self):
         """Add new segment to the snake's tail."""
         self.add_segment(self.segments[-1].position())
