@@ -19,12 +19,15 @@ class Scoreboard(Turtle):
     def update_scoreboard(self):
         """Display player's actual score."""
         self.clear()
-        self.write(f"Score: {self.score}   [High score: {self.high_score}]", align=ALIGNMENT, font=FONT)
+        with open("high_score.txt", mode="r") as data:
+            self.write(f"Score: {self.score}   [High score: {data.read()}]", align=ALIGNMENT, font=FONT)
 
     def reset_score(self):
         """Save highest score and reset scoreboard."""
         if self.score > self.high_score:
             self.high_score = self.score
+            with open("high_score.txt", mode="w") as data:
+                data.write(f"{self.high_score}")
         self.score = 0
         self.update_scoreboard()
 
